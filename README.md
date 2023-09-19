@@ -11,4 +11,4 @@ Subjects -
 
 Kindly add your optional subjects code to the repository for others to be helpful.
 
-Don't forget to add star if this repository helped you or your friends!
+<b>Don't forget to star the repository</b> if this repository helped you or your friends!
