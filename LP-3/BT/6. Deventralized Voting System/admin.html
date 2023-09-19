@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Admin Interface</title>
+</head>
+<body>
+    <h1>Admin Interface</h1>
+
+    <h2>Add Candidate</h2>
+    <form id="add-candidate-form">
+        <label for="candidate-name">Candidate Name:</label>
+        <input type="text" id="candidate-name" required>
+        <button type="submit">Add Candidate</button>
+    </form>
+
+    <script src="admin-script.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            // Connect to the Ethereum network using Web3.js or ethers.js
+        
+            // Contract address and ABI
+            const contractAddress = "YOUR_CONTRACT_ADDRESS";
+            // const contractABI = [...]; // Contract ABI
+            const contractABI = []; // Contract ABI
+        
+            // Instantiate the contract
+            const contract = new web3.eth.Contract(contractABI, contractAddress);
+        
+            // Handle add candidate form submission
+            const addCandidateForm = document.getElementById("add-candidate-form");
+            addCandidateForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const candidateName = document.getElementById("candidate-name").value;
+                
+                // TODO: Check if the user has admin privileges
+                
+                // TODO: Call the contract's addCandidate function
+                
+                // TODO: Provide feedback to the admin
+            });
+        });
+        
+    </script>
+</body>
+</html>

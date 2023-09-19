@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Decentralized E-Voting</title>
+</head>
+<body>
+    <h1>Election Candidates</h1>
+    <ul id="candidates-list"></ul>
+    
+    <h2>Vote</h2>
+    <form id="vote-form">
+        <select id="candidate-select"></select>
+        <button type="submit">Vote</button>
+    </form>
+
+    <h2>Results</h2>
+    <ul id="results-list"></ul>
+
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            // Connect to the Ethereum network using Web3.js or ethers.js
+        
+            // Contract address and ABI
+            const contractAddress = "YOUR_CONTRACT_ADDRESS";
+            // const contractABI = [...]; // Contract ABI
+            const contractABI = []; // Contract ABI
+        
+            // Instantiate the contract
+            const contract = new web3.eth.Contract(contractABI, contractAddress);
+        
+            // Populate candidate select dropdown
+            const candidateSelect = document.getElementById("candidate-select");
+            contract.methods.getCandidateCount().call()
+                .then(count => {
+                    for (let i = 0; i < count; i++) {
+                        contract.methods.getCandidate(i).call()
+                            .then(candidate => {
+                                candidateSelect.innerHTML += `<option value="${i}">${candidate[0]}</option>`;
+                            });
+                    }
+                });
+        
+            // Handle voting form submission
+            const voteForm = document.getElementById("vote-form");
+            voteForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const selectedCandidate = candidateSelect.value;
+                
+                // TODO: Check if the user has already voted
+                
+                // TODO: Call the contract's vote function
+                
+                // TODO: Update the UI with the results
+            });
+        });
+        
+    </script>
+</body>
+</html>
