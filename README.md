@@ -1,4 +1,4 @@
-# BE_Sem_5_Assignments 
+# BE_Sem_7_Assignments 
 
 (AY 2023-24 acc. to new 2019-20 SPPU syllabse)
 This is open-source repository for SPPU BE (Final Year) Computer Engineering Semester-5 Assignments with screenshots
