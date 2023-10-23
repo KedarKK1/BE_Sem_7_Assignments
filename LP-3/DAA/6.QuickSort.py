@@ -1,13 +1,19 @@
 import random, time
 
 def partition(l, r, a):
-    p = a[r]
-    i = l - 1
+    p = a[r] # Choose the rightmost element as pivot
+    i = l - 1 # Pointer for greater element
+    # Traverse through all elements compare each element with pivot
     for j in range(l, r):
         if a[j] <= p:
+            # If element smaller than pivot is found swap it with the greater element pointed by i
             i = i + 1
+            # Swapping element at i with element at j
             (a[i], a[j]) = (a[j], a[i])
+    # Swap the pivot element with the greater element specified by i
     (a[i + 1], a[r]) = (a[r], a[i + 1])
+    
+    # Return the position from where partition is done
     return i + 1
 
 def partition_rand(l, r, a):
